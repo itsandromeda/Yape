@@ -1,0 +1,34 @@
+/*
+    =============
+    CAROUSEL
+    =============
+*/
+
+#carousel .owl-item img{
+    display: block;
+    width: 100%;
+}
+
+#carousel {
+    position: relative;
+    padding-top: 2em;
+}
+
+#carousel h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #66667d;
+}
+
+#carousel button {
+    width: 100% !important;
+}
+
+.carousel-wrap {
+    margin: 50px auto;
+    width: 100%;
+}
+
+.owl-dots .active span {
+    background: #F64552 !important;
+}
