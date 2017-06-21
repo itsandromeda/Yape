@@ -1,34 +1,169 @@
+* {
+    box-sizing: border-box;
+}
+
+.wrapper h3 {
+    font-size: 1.2em;
+    color: #000;
+    line-height: 30px;
+    margin: 0.2em 0 0;
+}
+
+.wrapper p {
+    font-size: 0.9em;
+}
+
+
 /*
-    =============
-    CAROUSEL
-    =============
+    =================
+    SCREEN I CAROUSEL
+    =================
 */
 
-#carousel .owl-item img{
-    display: block;
-    width: 100%;
-}
-
-#carousel {
-    position: relative;
-    padding-top: 2em;
-}
-
-#carousel h3 {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #66667d;
-}
-
-#carousel button {
-    width: 100% !important;
+.carousel h3 {
+    font-size: 1.4em;
 }
 
 .carousel-wrap {
-    margin: 50px auto;
+    padding: 0 15%;
     width: 100%;
+    height: auto;
+}
+
+.carousel-wrap img {
+    width: 70% !important;
+    margin: auto;
+}
+
+.owl-stage .item h3 {
+    margin-top: 0.5em;
+}
+
+.owl-theme .owl-nav.disabled+.owl-dots {
+    margin-top: 0;
+}
+
+.owl-dots span {
+    background-color: #F8F8F8 !important;
 }
 
 .owl-dots .active span {
     background: #F64552 !important;
+}
+
+.register button {
+    margin-top: 1em;
+}
+
+
+/*
+    =========
+    SCREEN II
+    =========
+*/
+
+.carousel {
+    height: 100%;
+}
+
+.wrap .row {
+    margin: 0;
+}
+
+.num-form > div:first-child {
+    margin-bottom: 1em;
+}
+
+.num-form > div:nth-child(2) {
+    margin-bottom: 5em;
+}
+
+img[alt="Phone"] {
+    margin-top: 5em;
+}
+
+.terms[type="checkbox"].filled-in + label:after {
+    border-radius: 5px;
+    border: 2px solid #EDEDEE;
+}
+
+.terms[type="checkbox"].filled-in:checked + label:after {
+    border: 2px solid #26a69a;
+}
+
+.num-form .row .input-field,
+.num-form .left-align {
+    padding: 0 1em;
+}
+
+.num-form .row .input-field input {
+    padding-left: 3em;
+    width: 80%;
+}
+
+.wrap .row input {
+    padding-left: 2em;
+    width: 80%;
+}
+
+.num-form .left-align a {
+    color: #69D8C4;
+}
+
+.wrap .row .input-field .label-icon {
+    margin-left: 1.8em;
+}
+
+.confirm-form .row .label-icon {
+    margin-left: 1.5em;
+}
+
+.form:focus {
+    border-bottom: 1px solid #9e9e9e !important;
+}
+
+.num-form .continue {
+    color: #fff !important;
+}
+
+
+/*
+    ==============
+    CREATE ACCOUNT
+    ==============
+*/
+
+.create-account > div:first-child {
+    margin-top: 2em;
+}
+
+.create-account .create {
+    margin-top: 2em;
+}
+
+
+/*
+    =============
+    REUSABLE
+    =============
+*/
+
+.success {
+    color: #522436;
+    height: 100vh;
+    background-color: #FBD43B;
+}
+
+.register .row {
+    margin: 5em 0 0;
+}
+
+.full-btn {
+    border-radius: 4px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.no-shadow {
+    box-shadow: none !important;
 }

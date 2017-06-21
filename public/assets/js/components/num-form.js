@@ -1,0 +1,45 @@
+/*global $*/
+const numForm = (update) => {
+    const container = $('<section class="row wrap num-form center-align"></section>'),
+        header = $('<div class="col s12"><img class="img-responsive" src="img/icons/phone.png" height="75" alt="Phone"><h3>Para comenzar validaremos tu número</h3><p>Recibirás un SMS con un código de validación</p></div>'),
+        row = $('<div class="row"></div>'),
+        input_field = $('<div class="input-field col s12"></div>'),
+        input = $('<input id="phone" class="center-align no-shadow form" type="text" required>'),
+        icon = $('<label class="label-icon" for="phone"><img src="img/icons/phoneandnumber.png" alt="phone" height="25"></label>'),
+        checkbox_field = $('<div class="col s12 left-align"></div>'),
+        checkbox = $('<input id="filled-in-box" type="checkbox" class="terms filled-in" />'),
+        label = $('<label for="filled-in-box">Acepto los <a href="#">Términos y condiciones.</a></label>'),
+        continuar_btn = $('<button class="continue btn amber accent-2 no-shadow" disabled>Continuar</button>');
+
+    container.append(header);
+    container.append(row);
+    container.append(continuar_btn);
+
+    row.append(input_field);
+    row.append(checkbox_field);
+
+    input_field.append(icon, input);
+    checkbox_field.append(checkbox, label);
+
+    $(_ => {
+        var check;
+        $("#filled-in-box").click(_ => {
+            check = $("#filled-in-box").is(":checked");
+            if (check) {
+                $('.continue').prop("disabled", false);
+                $(".continue").click(_ => {
+                    settings.screen = 1;
+                    update();
+                });
+            } else {
+                $('.continue').prop("disabled", true);
+            }
+        });
+
+        $("#phone").keyup(_ => {
+            //Insert space every three characters.
+        });
+    });
+
+    return container;
+};
