@@ -32,7 +32,14 @@ const render = (root) => {
 };
 
 const settings = {
-    screen: null
+    screen: null,
+    validation: false,
+    name: null,
+    email: null,
+    password: null,
+    phone: null,
+    terms: false,
+    code: null
 };
 
 $(_ => {
@@ -53,11 +60,5 @@ $(_ => {
                 items: 1
             }
         }
-    });
-});
-
-$(_ => {
-    $.get('http://localhost:3000/api/', (err, json) => {
-        settings.screen = json;
     });
 });

@@ -1,4 +1,4 @@
-/*global $*/
+/*global $, Promise, alert, console, settings*/
 const numForm = (update) => {
     const container = $('<section class="row wrap num-form center-align"></section>'),
         header = $('<div class="col s12"><img class="img-responsive" src="img/icons/phone.png" height="75" alt="Phone"><h3>Para comenzar validaremos tu número</h3><p>Recibirás un SMS con un código de validación</p></div>'),
@@ -22,24 +22,66 @@ const numForm = (update) => {
     checkbox_field.append(checkbox, label);
 
     $(_ => {
-        var check;
-        $("#filled-in-box").click(_ => {
-            check = $("#filled-in-box").is(":checked");
-            if (check) {
-                $('.continue').prop("disabled", false);
-                $(".continue").click(_ => {
-                    settings.screen = 1;
-                    update();
+        input.on('blur', () => {
+            if (input.val().length === 9) {
+                settings.validation = true;
+
+                var check,
+                    celRegex = /[0-9]{9}/;
+
+                $("#filled-in-box").click(_ => {
+                    check = $("#filled-in-box").is(":checked");
+                    if (check && settings.validation === true && celRegex.test(input.val())) {
+
+                        $('.continue').prop("disabled", false);
+                        $(".continue").click(_ => {
+                            if (settings.validation === true) {
+                                const user = {
+                                    phone: input.val(),
+                                    terms: true
+                                };
+
+                                getNum(user)
+                                    .then((response) => {
+                                        if (response.data === null) {
+                                            console.log("ERROR");
+                                        } else {
+                                            settings.screen = 1;
+                                            update();
+                                        }
+                                    });
+                            }
+
+                            update();
+                        });
+                    }
                 });
-            } else {
+            } else if (input.val().length < 9) {
+                settings.validation = false;
                 $('.continue').prop("disabled", true);
             }
         });
 
         $("#phone").keyup(_ => {
-            //Insert space every three characters.
+            //To do: Insert space every three characters.
         });
     });
 
     return container;
+};
+
+const getNum = (user) => {
+    return new Promise((resolve, reject) => {
+        $.post('api/registerNumber/', user, (response, res, req) => {
+            if (response.success) {
+                settings.phone = response.data.phone;
+                settings.code = response.data.code;
+                console.log("Número: " + settings.phone);
+                console.log("Código: " + settings.code);
+                resolve(response);
+            } else {
+                resolve(response);
+            }
+        });
+    });
 };

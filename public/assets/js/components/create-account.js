@@ -32,18 +32,54 @@ const account = (update) => {
         $('.form-check').keyup(_ => {
             var name = $('#name').val(),
                 email = $('#email').val(),
-                password = $('#pass').val();
+                password = $('#pass').val(),
+                nameRegex = /^[a-zA-Z]+$/,
+                emailRegex = /\S+@\S+\.\S+/;
 
-            if (name && email && password) {
-                //If confirmation number is correct, redirect to "Create an account" screen
+            if (nameRegex.test(name_input.val()) && emailRegex.test(email_input.val()) && password.length > 5) {
                 $('#create').prop("disabled", false);
                 $("#create").click(_ => {
-                    settings.screen = 3;
-                    update();
+                    const user = {
+                        phone: settings.phone,
+                        name: name_input.val(),
+                        email: email_input.val(),
+                        password: pass_input.val()
+                    };
+
+                    newUser(user)
+                        .then((response) => {
+                            if (response.data === null) {
+                                console.log("ERROR");
+                            } else {
+                                settings.screen = 3;
+                                update();
+                            }
+                        });
                 });
+            } else {
+                $('#create').prop("disabled", true);
             }
         });
     });
 
     return container;
 };
+
+const newUser = (user) => {
+    return new Promise((resolve, reject) => {
+        $.post('api/createUser/', user, (response, res, req) => {
+            if (response.success) {
+                console.log("Nuevo usuario creado.");
+                settings.name = response.data.name;
+                settings.email = response.data.email;
+                settings.password = response.data.password;
+                console.log("Nombre: " + settings.name);
+                console.log("E-mail: " + settings.email);
+                console.log("Password: " + settings.password);
+                resolve(response);
+            } else {
+                resolve(response);
+            }
+        });
+    });
+}

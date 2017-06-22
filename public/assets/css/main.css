@@ -149,9 +149,10 @@ img[alt="Phone"] {
 */
 
 .success {
+    background-color: #FBD43B;
     color: #522436;
     height: 100vh;
-    background-color: #FBD43B;
+    padding-top: 14em;
 }
 
 .register .row {
@@ -166,4 +167,19 @@ img[alt="Phone"] {
 
 .no-shadow {
     box-shadow: none !important;
+}
+
+.expiration {
+    border: none;
+    margin: 0 !important;
+}
+
+.expiration label {
+    margin-right: 5em;
+}
+
+.expiration input {
+    width: 3em !important;
+    padding: 0 0.5em !important;
+    text-align: center;
 }
