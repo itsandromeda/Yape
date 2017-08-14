@@ -183,3 +183,16 @@ img[alt="Phone"] {
     padding: 0 0.5em !important;
     text-align: center;
 }
+
+.expiration-block {
+    display: inline-block;
+}
+
+.card-info .create-account {
+    margin-top: 15px;
+}
+
+.scan {
+    position: relative;
+    top: -5px;
+}

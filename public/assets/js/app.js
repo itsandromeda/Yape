@@ -2,7 +2,8 @@
 const render = (root) => {
     root.empty();
     const wrapper = $('<div class="wrapper container"></div>');
-
+    root.append(wrapper);
+    
     if (settings.screen === null) {
         wrapper.append(register(_ => {
             render(root);
@@ -27,8 +28,11 @@ const render = (root) => {
         wrapper.append(card(_ => {
             render(root)
         }));
+    } else if (settings.screen === 5) {
+        wrapper.append(cardPassword(_ => {
+            render(root)
+        }))
     }
-    root.append(wrapper);
 };
 
 const settings = {

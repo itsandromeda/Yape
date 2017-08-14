@@ -4,7 +4,7 @@ const numForm = (update) => {
         header = $('<div class="col s12"><img class="img-responsive" src="img/icons/phone.png" height="75" alt="Phone"><h3>Para comenzar validaremos tu número</h3><p>Recibirás un SMS con un código de validación</p></div>'),
         row = $('<div class="row"></div>'),
         input_field = $('<div class="input-field col s12"></div>'),
-        input = $('<input id="phone" class="center-align no-shadow form" type="text" required>'),
+        input = $('<input id="phone" class="center-align no-shadow form" type="text" maxlength="9" required>'),
         icon = $('<label class="label-icon" for="phone"><img src="img/icons/phoneandnumber.png" alt="phone" height="25"></label>'),
         checkbox_field = $('<div class="col s12 left-align"></div>'),
         checkbox = $('<input id="filled-in-box" type="checkbox" class="terms filled-in" />'),
@@ -60,10 +60,6 @@ const numForm = (update) => {
                 settings.validation = false;
                 $('.continue').prop("disabled", true);
             }
-        });
-
-        $("#phone").keyup(_ => {
-            //To do: Insert space every three characters.
         });
     });
 

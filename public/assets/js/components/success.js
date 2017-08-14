@@ -4,13 +4,12 @@ const success = (update) => {
         content = $('<div class="col s12"><img src="../img/icons/check.png" alt="Success!" height="80"></div><p><b>¡Bien!</b><br>Ahora puedes usar Yape</p>');
 
     container.append(content);
-    $(_ => {
-        
+    $(_ => {        
         $('.container:has(.success)').removeClass('container');
         var interval = setInterval(_ => {
             settings.screen = 4;
-            update();
             clearInterval(interval);
+            update();
         }, 3000);
     });
 

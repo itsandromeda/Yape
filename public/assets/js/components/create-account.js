@@ -69,13 +69,9 @@ const newUser = (user) => {
     return new Promise((resolve, reject) => {
         $.post('api/createUser/', user, (response, res, req) => {
             if (response.success) {
-                console.log("Nuevo usuario creado.");
                 settings.name = response.data.name;
                 settings.email = response.data.email;
                 settings.password = response.data.password;
-                console.log("Nombre: " + settings.name);
-                console.log("E-mail: " + settings.email);
-                console.log("Password: " + settings.password);
                 resolve(response);
             } else {
                 resolve(response);
