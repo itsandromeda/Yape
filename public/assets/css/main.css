@@ -196,3 +196,13 @@ img[alt="Phone"] {
     position: relative;
     top: -5px;
 }
+
+.pass-field {
+    position: relative;
+}
+
+label[for="card-num"] {
+    position: absolute;
+    left: 0;
+    bottom: 25px;
+}

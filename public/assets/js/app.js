@@ -32,6 +32,10 @@ const render = (root) => {
         wrapper.append(cardPassword(_ => {
             render(root)
         }))
+    } else if (settings.screen === 6) {
+        wrapper.append(Final(_ => {
+            render(root)
+        }))
     }
 };
 
@@ -43,7 +47,11 @@ const settings = {
     password: null,
     phone: null,
     terms: false,
-    code: null
+    code: null,
+    card: null,
+    cardPassword: null,
+    month: null,
+    year: null
 };
 
 $(_ => {
