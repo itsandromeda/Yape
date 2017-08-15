@@ -31,11 +31,9 @@ const render = (root) => {
     } else if (settings.screen === 5) {
         wrapper.append(cardPassword(_ => {
             render(root)
-        }))
+        }));
     } else if (settings.screen === 6) {
-        wrapper.append(Final(_ => {
-            render(root)
-        }))
+        wrapper.append(Final());
     }
 };
 

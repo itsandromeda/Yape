@@ -206,3 +206,62 @@ label[for="card-num"] {
     left: 0;
     bottom: 25px;
 }
+
+.lightest-purple {
+    background-color: #451e36;
+    height: 40vh;
+    padding-top: 45px;
+}
+
+.darkest-purple {
+    background-color: #38052a;
+    height: 60vh;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.darkest-header {
+    border-bottom: 1px solid #3E102F;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.action-call {
+    overflow: auto;
+    padding: 0 15px;
+    margin: 10px 0 20px 0;
+}
+
+.action-call p {
+    margin-bottom: 5px;
+}
+
+.action-call img {
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+
+.action {
+    clear: both;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+img[alt="Engine"] {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+img[alt="Arrow"] {
+    position: relative;
+    top: 11px;
+}
